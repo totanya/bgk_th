@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="scripts/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
     <script>
     </script>
 </head>
@@ -18,8 +19,11 @@
 <body>
     <div class="container" id="container">
         <div class="row">
-            <div><button id="btnStart" class="control-button">Press me to Start</button></div>
-            <div><button id="btnStop" class="control-button">Press me to Stop</button></div>
+            <div class="buttons-container">
+                <button id="btnStart" class="control-button">Start</button>
+                <button id="btnStop" class="control-button">Stop</button>
+                <button id="btnReset" class="control-button">Reset</button>
+            </div>
             <div id="drop_block">
                 <h3>Drop me here!</h3>
             </div>
@@ -27,16 +31,18 @@
         <br style="clear:both">
         <div id="draggable_container" class="top-buffer">
             <div class="row" id="row1">
-
             </div>
             <div class="row" id="row2">
-
             </div>
             <div id="row3">
                 <p>Position X : <span id="x"></span> Relative X : <span id="con_x"></span></p>
                 <p>Position Y : <span id="y"></span> Relative Y : <span id="con_y"></span></p>
                 <p>Drag : <span id="drag"></span></p>
-                <textarea id="result"></textarea>
+                <div class="pre-wrapper">
+                    <pre class="prettyprint" id="result"></pre>
+                    <div class="copy-snippet"><button id="copy_btn">Copy</button><button id="download_btn">Download</button></div>
+                </div>
+
             </div>
         </div>
     </div>

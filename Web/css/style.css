@@ -1,16 +1,26 @@
+pre {
+    height: auto;
+    min-height: 100px;
+    max-height: 300px;
+    overflow: auto;
+    background-color: #eeeeee;
+    word-break: normal !important;
+    word-wrap: normal !important;
+    white-space: pre !important;
+}
+
 #drop_block {
     width: 400px;
     height: 200px;
-    background-color: grey;
-    border: 2px dashed black;
+    background-color: #e0fbfc;
+    border: 2px dashed #293241;
     margin-left: auto;
     margin-right: auto;
 }
 
 #container {
-    border: dashed black;
+    border: dashed #293241;
     width: 800px;
-    height: 600px;
     padding: 10px;
     margin-left: auto;
     margin-right: auto;
@@ -25,18 +35,28 @@
     margin-top: 20px;
 }
 
+.row button {
+    width: 50px;
+}
+
 .draggable {
     width: 80px;
     height: 80px;
     padding: 5px;
     display: block;
     float: left;
+    border-radius: 50%;
     margin: 10px;
     font-size: .9em;
     text-align: center;
-    vertical-align: auto;
     border: solid black 1px;
-    background-color: darkkhaki;
+    background-color: #1b4965;
+}
+
+.draggable p {
+    line-height: 80px;
+    margin: 0;
+    color: white;
 }
 
 .ui-droppable h3 {
@@ -49,8 +69,26 @@
     visibility: visible;
 }
 
-.control-button {
+.buttons-container {
     position: absolute;
     top: 8px;
     left: 8px;
+}
+
+.pre-wrapper {
+    position: relative;
+}
+
+.pre-wrapper pre {
+    padding-top: 25px;
+}
+
+.pre-wrapper .copy-snippet {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+}
+
+.pre-wrapper .copy-snippet:disabled {
+    color: #555;
 }
