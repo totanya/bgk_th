@@ -1,0 +1,56 @@
+#drop_block {
+    width: 400px;
+    height: 200px;
+    background-color: grey;
+    border: 2px dashed black;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#container {
+    border: dashed black;
+    width: 800px;
+    height: 600px;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.row {
+    display: flex;
+}
+
+.top-buffer {
+    margin-top: 20px;
+}
+
+.draggable {
+    width: 80px;
+    height: 80px;
+    padding: 5px;
+    display: block;
+    float: left;
+    margin: 10px;
+    font-size: .9em;
+    text-align: center;
+    vertical-align: auto;
+    border: solid black 1px;
+    background-color: darkkhaki;
+}
+
+.ui-droppable h3 {
+    text-align: center;
+    line-height: 180px;
+    visibility: hidden;
+}
+
+.ui-droppable-active h3 {
+    visibility: visible;
+}
+
+.control-button {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+}
