@@ -1,7 +1,7 @@
 var needWrite = false;
 var data = [];
 var drag = false;
-var containerPosition = null;
+var initialState = {};
 //================ jquery events ===============
 
 function onStartDragging(ev, ui) {
@@ -58,12 +58,20 @@ function reset() {
     $('#result').html('');
 }
 
+function logData(event) {
+    var relX = event.pageX - initialState.left;
+    var rely = event.pageY - initialState.top;
+    var elem = [performance.now() - initialState.time, relX, rely, +drag];
+    if (needWrite)
+        data.push(elem);
+}
+
 $(function() {
     reset();
     $("#drop_block").droppable();
     $('#btnStop').hide();
 
-    $('#btnStart').click(function() {
+    $('#btnStart').click(function(event) {
         data = [];
         needWrite = true;
         $('#btnStart').hide();
@@ -77,8 +85,13 @@ $(function() {
             drag: onDrag,
             stop: onStopDragging
         });
+        initialState.left = $("#container").offset().left;
+        initialState.top = $("#container").offset().top;
+        initialState.time = performance.now();
 
+        logData(event);
     });
+
     $('#btnReset').click(function() {
         reset();
     });
@@ -102,21 +115,17 @@ $(function() {
         DownloadJSON();
     });
 
-    containerPosition = $("#container").offset();
-
     $(window).resize(function() {
-        containerPosition = $("#container").offset();
+        initialState.left = $("#container").offset().left;
+        initialState.top = $("#container").offset().top;
     });
 
     $("#container").mousemove(function(event) {
-        $("#x").text(event.pageX);
-        $("#y").text(event.pageY);
-        $("#drag").text(drag);
-        $("#con_x").text(event.pageX - containerPosition.left);
-        $("#con_y").text(event.pageY - containerPosition.top);
-        var elem = { x: event.pageX, y: event.pageY, drag: drag }
-        if (needWrite)
-            data.push(elem);
-
+        // $("#x").text(event.pageX);
+        // $("#y").text(event.pageY);
+        // $("#drag").text(drag);        
+        // $("#con_x").text();
+        // $("#con_y").text();
+        logData(event);
     });
 });
