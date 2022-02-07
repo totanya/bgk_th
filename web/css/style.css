@@ -92,3 +92,15 @@ pre {
 .pre-wrapper .copy-snippet:disabled {
     color: #555;
 }
+
+.draggable-6 {
+    background-color: #eaa7a2;
+}
+
+.draggable-8 {
+    background-color: #e76e65;
+}
+
+.draggable-11 {
+    background-color: #e9291b;
+}
