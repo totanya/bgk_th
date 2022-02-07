@@ -45,8 +45,15 @@ function reset() {
     $('#row1').html('');
     $('#row2').html('');
     for (let i = 0; i < 7; i++) {
-        $("#template .draggable").clone().appendTo("#row1");
-        $("#template .draggable").clone().appendTo("#row2");
+        var cloned = $("#template .draggable").clone();
+        cloned.find('.number').html(i);
+        cloned.addClass("draggable-" + i);
+        cloned.appendTo('#row1');
+
+        var cloned2 = $("#template .draggable").clone();
+        cloned2.find('.number').html(7 + i);
+        cloned2.addClass("draggable-" + (7 + i));
+        cloned2.appendTo('#row2');
     }
 
 
